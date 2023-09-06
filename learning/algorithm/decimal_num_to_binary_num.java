@@ -10,11 +10,33 @@ public class decimal_num_to_binary_num {
             int x = scanner.nextInt();
             int r = scanner.nextInt();
 
-            int remain = 0;
+            String remain = "";
             StringBuilder result = new StringBuilder();
 
             while (x != 0) {
-                remain = x % r;
+                remain = String.valueOf(x % r);
+                if (r == 16 && Integer.valueOf(remain) > 9) {
+                    switch (Integer.valueOf(remain)) {
+                        case 10:
+                            remain = "A";
+                            break;
+                        case 11:
+                            remain = "B";
+                            break;
+                        case 12:
+                            remain = "C";
+                            break;
+                        case 13:
+                            remain = "D";
+                            break;
+                        case 14:
+                            remain = "E";
+                            break;
+                        case 15:
+                            remain = "F";
+                            break;
+                    }
+                }
                 result.append(remain);
                 x = x / r;
             }
